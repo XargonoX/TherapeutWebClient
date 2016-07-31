@@ -7,4 +7,15 @@ app.controller("patientListController", function($scope, $http){
     }).error(function(err){
         $scope.error = err;
     });
+
+    $scope.deletePatient = function(patient){
+        $http.delete("http://localhost:3000/patientAPI/" + patient._id)
+            .success(function(response){
+                $scope.patients.pop(patient);
+        })
+    };
+    
 });
+
+
+

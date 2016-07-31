@@ -6,9 +6,8 @@ var cookieParser    = require('cookie-parser');
 var bodyParser      = require('body-parser');
 var mongoose        = require('mongoose');
 
-var routes          = require('./public/routes/index');
-//var patientList     = require('./public/app');
 var patient         = require('./public/routes/patientsAPI');
+var therapieTask    = require('./public/routes/therapieTaskAPI');
 
 var app             = express();
 
@@ -21,23 +20,22 @@ db.once('open', function callback(){
     console.log("Verbindung zu MongoDB erfolgreich!");
 });
 
-
+// view engine setup
+app.set('views', __dirname + '/public/views');
+app.engine('html', require('ejs').renderFile);
+app.set('view engine', 'ejs');
 
 // uncomment after placing your favicon in /public
-//app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
+app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
 app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
-app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.static(path.join(__dirname, '/public/views')));
+app.use(express.static(path.join(__dirname, '/public')));
 
-// view engine setup
-app.set('views', path.join(__dirname, 'views'));
-app.set('view engine', 'jade');
-
-app.use('/', routes);
-//app.use('/patientList', patientList);
 app.use('/patientAPI',patient);
+app.use('/therapieTaskAPI',therapieTask);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
@@ -53,7 +51,7 @@ app.use(function(req, res, next) {
 if (app.get('env') === 'development') {
   app.use(function(err, req, res, next) {
     res.status(err.status || 500);
-    res.render('error', {
+    res.render('error.html', {
       message: err.message,
       error: err
     });
@@ -64,7 +62,7 @@ if (app.get('env') === 'development') {
 // no stacktraces leaked to user
 app.use(function(err, req, res, next) {
   res.status(err.status || 500);
-  res.render('error', {
+  res.render('error.html', {
     message: err.message,
     error: {}
   });

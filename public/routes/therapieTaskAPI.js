@@ -1,21 +1,21 @@
 var express = require('express');
 var router = express.Router();
-var patients = require('../controllers/patientAPIController');
+var therapieTasks = require('../controllers/therapieTaskAPIController');
 
-// POST /patient
-router.post('/', patients.post);
+// POST /therapieTask
+router.post('/', therapieTasks.post);
 
-//GET patient gibt liste aller Patienten zurück
-router.get('/', patients.get);
+//GET therapieTask gibt liste aller Patienten zurück
+router.get('/', therapieTasks.get);
 
-//GET /patient/figdfg3454375sdfh234dsasd
-router.get('/:patientId', patients.show);
+//GET /therapieTask/figdfg3454375sdfh234dsasd
+router.get('/:therapieTaskId', therapieTasks.show);
 
-// PUT /patient/ashdhqwhei23h4ihhashdhashdh324 ->body: Datenobjekt
-router.put('/:patientId', patients.put);
+// PUT /therapieTask/ashdhqwhei23h4ihhashdhashdh324 ->body: Datenobjekt
+router.put('/:therapieTaskId', therapieTasks.put);
 
-//GET /patient/figdfg3454375sdfh234dsasd
-router.delete('/:patientId', patients.delete);
+//GET /therapieTask/figdfg3454375sdfh234dsasd
+router.delete('/:therapieTaskId', therapieTasks.delete);
 
 module.exports = router;
 

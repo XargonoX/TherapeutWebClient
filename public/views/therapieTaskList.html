@@ -5,17 +5,14 @@
                 <thead>
                 <tr></tr>
                 <th>Name</th>
-                <th>E-Mail</th>
-                <th>Geburtsdatum</th>
+                <th>Beschreibung</th>
                 <th>Bearbeiten</th>
                 <tbody>
-                <tr ng-repeat="patient in patients">
-                    <td>{{patient.name}}</td>
-                    <td>{{patient.emailAddress}}</td>
-                    <td>{{patient.birthdate | date : 'dd.MM.yy'}}</td>
-                    <td>
-                        <a href="#/patientDetails/{{patient._id}}" class="btn btn-warning">Bearbeiten</a>
-                        <a href="" ng-click="deletePatient(patient)" class="btn btn-danger">
+                <tr ng-repeat="therapieTask in therapieTasks">
+                    <td>{{therapieTask.name}}</td>
+                    <td>{{therapieTask.description}}</td>
+                    <td><a href="#/therapieTaskDetails/{{therapieTask._id}}" class="btn btn-warning">Bearbeiten</a>
+                        <a href="" ng-click="deleteTherapieTask(therapieTask)" class="btn btn-danger">
                             <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
                         </a>
                     </td>
@@ -24,6 +21,6 @@
                 </thead>
             </table>
         </div>
-        <a href="#patientDetails" class="btn btn-success">Patienten hinzufügen</a>
+        <a href="#therapieTaskDetails" class="btn btn-success">Therapeutische Aufgabe hinzufügen</a>
     </iv>
 </div>

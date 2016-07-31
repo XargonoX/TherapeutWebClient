@@ -1,25 +1,25 @@
 var app = angular.module("patientManagement");
 
-app.controller("patientDetailsController", function($scope, $http, $location, $routeParams){
-    $scope.patient = {};
+app.controller("therapieTaskDetailsController", function($scope, $http, $location, $routeParams){
+    $scope.therapieTask = {};
     var id = $routeParams.id;
     console.log("id: " + id);
-    $http.get("http://localhost:3000/patientAPI/" + id).success(function(response) {
-        $scope.patient = response;
+    $http.get("http://localhost:3000/therapieTaskAPI/" + id).success(function(response) {
+        $scope.therapieTask = response;
     });
 
-    $scope.savePatient = function () {
+    $scope.saveTherapieTask = function () {
         if(typeof id == "undefined"){
-            $http.post("http://localhost:3000/patientAPI", $scope.patient)
+            $http.post("http://localhost:3000/therapieTaskAPI", $scope.therapieTask)
                 .success(function(response){
-                    console.log("Neuer Patient angelegt");
-                    $location.url("/patientList");
+                    console.log("Neuer therapieTask angelegt");
+                    $location.url("/therapieTaskList");
                 });
         }else{
-            $http.put("http://localhost:3000/patientAPI/" + $scope.patient._id, $scope.patient)
+            $http.put("http://localhost:3000/therapieTaskAPI/" + $scope.therapieTask._id, $scope.therapieTask)
                 .success(function(response){
-                    console.log("Neuer Patient angelegt");
-                    $location.url("/patientList")
+                    console.log("Neuer therapieTask angelegt");
+                    $location.url("/therapieTaskList")
                 });
         }
 

@@ -7,13 +7,9 @@ var TherapieTaskSchema = new Schema({
         default: Date.now
     },
     name : String,
-    address : String,
-    postcode : String,
-    emailAddress : String,
-    phoneNumber : String,
-    birthdate : Date,
-    patientInfo : String
-
+    description : String,
+    materials : String,
+    feedbackForm : String
 });
 
 TherapieTaskSchema.statics = {
@@ -22,4 +18,4 @@ TherapieTaskSchema.statics = {
     }
 };
 
-mongoose.model('therapieTask',TherapieTaskSchema);
+mongoose.model('TherapieTask',TherapieTaskSchema);

@@ -1,41 +1,41 @@
-require('../models/patient');
+require('../models/therapieTask');
 var mongoose = require('mongoose');
 var _ = require('underscore');
-var Patient = mongoose.model("Patient");
+var TherapieTask = mongoose.model("TherapieTask");
 exports.post = function (req, res) {
 
-    var patient = new Patient(req.body);
-    patient.save();
-    res.jsonp(patient);
+    var therapieTask = new TherapieTask(req.body);
+    therapieTask.save();
+    res.jsonp(therapieTask);
 };
 
 exports.get = function (req, res) {
-    Patient.find().exec(function (err, patients) {
-        res.jsonp(patients);
+    TherapieTask.find().exec(function (err, therapieTasks) {
+        res.jsonp(therapieTasks);
     });
 };
 
 exports.show = function(req,res){
-    Patient.load(req.params.patientId, function(err,patient){
-        res.jsonp(patient);
+    TherapieTask.load(req.params.therapieTaskId, function(err,therapieTask){
+        res.jsonp(therapieTask);
     });
 };
 
 exports.put = function(req, res){
-    Patient.load(req.params.patientId, function(err,patient){
+    TherapieTask.load(req.params.therapieTaskId, function(err,therapieTask){
 
-        patient = _.extend(patient, req.body);
+        therapieTask = _.extend(therapieTask, req.body);
 
-        patient.save(function(err){
-            res.jsonp(patient);
+        therapieTask.save(function(err){
+            res.jsonp(therapieTask);
         })
     });
 };
 
 exports.delete = function(req,res){
-    Patient.load(req.params.patientId, function(err,patient){
-        patient.remove(function(err){
-            res.jsonp(patient);
+    TherapieTask.load(req.params.therapieTaskId, function(err,therapieTask){
+        therapieTask.remove(function(err){
+            res.jsonp(therapieTask);
         })
     });
 };

@@ -1,4 +1,4 @@
-<form class="form-horizontal" ng-submit="savePatient()">
+<form class="form-horizontal" ng-submit="saveTherapieTask()">
     <fieldset>
         <legend>Patient Details</legend>
 
@@ -6,61 +6,35 @@
             <label class="control-label" for="textinput">Name</label>
             <div class=controls">
                 <input id="textinput" name="textinput" type="text"
-                       placeholder="Max Mustermann" class="input-xlarge"
-                       ng-model="patient.name">
+                       placeholder="Name/Kurzbeschreibung" class="input-xlarge"
+                       ng-model="therapieTask.name">
             </div>
         </div>
 
         <div class="control-group">
-            <label class="control-label" for="textinput">Geburtsdatum</label>
-            <div class=controls">
-                <input id="textinput" name="textinput" type="date" ng-model="patient.birthdate">
-            </div>
-        </div>
-
-        <div class="control-group">
-            <label class="control-label" for="textinput">Straße & Nr.</label>
-            <div class=controls">
-                <input id="textinput" name="textinput" type="text"
-                       placeholder="BeispielStraße 9" class="input-xlarge"
-                       ng-model="patient.address">
-            </div>
-        </div>
-
-        <div class="control-group">
-            <label class="control-label" for="textinput">PLZ & Ort</label>
-            <div class=controls">
-                <input id="textinput" name="textinput" type="text"
-                       placeholder="Max Mustermann" class="input-xlarge"
-                       ng-model="patient.postcode">
-            </div>
-        </div>
-
-        <div class="control-group">
-            <label class="control-label" for="textinput">Telefonnummer</label>
-            <div class=controls">
-                <input id="textinput" name="textinput" type="text"
-                       placeholder="Max Mustermann" class="input-xlarge"
-                       ng-model="patient.phoneNumber">
-            </div>
-        </div>
-
-        <div class="control-group">
-            <label class="control-label" for="textinput">eMail Adresse</label>
-            <div class=controls">
-                <input id="textinput" name="textinput" type="email"
-                       placeholder="MaxMustermann@gmx.de" class="input-xlarge"
-                       ng-model="patient.emailAddress">
-            </div>
-        </div>
-
-        <div class="control-group">
-            <label class="control-label" for="textinput">Patienten Info</label>
+            <label class="control-label" for="textinput">Beschreibung</label>
             <div class=controls">
                 <textarea id="textinput" name="textinput" type="text"
-                       placeholder="Max Mustermann" class="input-xlarge" size="40"
-                       ng-model="patient.patientInfo">
-            </textarea>
+                          placeholder="Beschreibung der Therapeutischen Aufgabe" class="input-xlarge" size="40"
+                          ng-model="therapieTask.description">
+                </textarea>
+            </div>
+        </div>
+
+        <div class="control-group">
+            <label class="control-label" for="textinput">Materialien</label>
+            <div class=controls">
+                <input id="textinput" name="textinput" type="text" placeholder="TODO AUSWÄHLER"  ng-model="therapieTask.materials">
+            </div>
+        </div>
+
+        <div class="control-group">
+            <label class="control-label" for="textinput">Feedback Fragebogen</label>
+            <div class=controls">
+                <input id="textinput" name="textinput" type="text"
+                       placeholder="TODO Fragebogenauswahl" class="input-xlarge"
+                       ng-model="therapieTask.feedbackForm">
+            </div>
         </div>
 
         <div class="control-group">
