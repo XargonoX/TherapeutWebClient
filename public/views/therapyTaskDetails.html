@@ -1,5 +1,5 @@
-<div ng-controller="therapieTaskDetailsController">
-    <form class="form-horizontal" ng-submit="saveTherapieTask()">
+<div ng-controller="therapyTaskDetailsController">
+    <form class="form-horizontal" ng-submit="saveTherapyTask()">
         <fieldset>
             <legend>Therapeutische Aufgabe Details</legend>
 
@@ -8,7 +8,7 @@
                 <div class=controls">
                     <input id="textinput" name="textinput" type="text"
                            placeholder="Name/Kurzbeschreibung" class="input-xlarge"
-                           ng-model="therapieTask.name">
+                           ng-model="therapyTask.name">
                 </div>
             </div>
 
@@ -17,7 +17,7 @@
                 <div class=controls">
                     <textarea id="textinput" name="textinput" type="text"
                               placeholder="Beschreibung der Therapeutischen Aufgabe" class="input-xlarge" width="80"
-                              ng-model="therapieTask.description">
+                              ng-model="therapyTask.description">
                     </textarea>
                 </div>
             </div>
@@ -25,11 +25,11 @@
             <div class="panel panel-default" style="max-width: 8">
                 <div class="panel-heading">Angehängte Materialien</div>
                     <ul class="list-group">
-                            <li class="list-group-item" ng-repeat="mats in therapieTask.materials">
+                            <li class="list-group-item" ng-repeat="mats in therapyTask.materials">
                                 {{mats}}
                                 <div class="btn-group btn-group-xs">
                                     <button type="button" class="btn btn-danger"
-                                            ng-click="therapieTask.materials.splice(therapieTask.materials.indexOf('mats'),1)">Löschen</button>
+                                            ng-click="therapyTask.materials.splice(therapyTask.materials.indexOf('mats'),1)">Löschen</button>
                                 </div>
                             </li>
                     </ul>
@@ -42,7 +42,7 @@
                 </div>
                 
                 <button type="button" class="btn btn-success"
-                        ng-click="therapieTask.materials.push(material)">Material hinzufügen</button>
+                        ng-click="therapyTask.materials.push(material)">Material hinzufügen</button>
             </div>
 
             <div class="control-group">
@@ -50,7 +50,7 @@
                 <div class=controls">
                     <input id="textinput" name="textinput" type="text"
                            placeholder="TODO Fragebogenauswahl" class="input-xlarge"
-                           ng-model="therapieTask.feedbackForm">
+                           ng-model="therapyTask.feedbackForm">
                 </div>
             </div>
 

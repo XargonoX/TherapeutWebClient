@@ -8,11 +8,11 @@
                 <th>Beschreibung</th>
                 <th>Bearbeiten</th>
                 <tbody>
-                <tr ng-repeat="therapieTask in therapieTasks">
-                    <td>{{therapieTask.name}}</td>
-                    <td>{{therapieTask.description}}</td>
-                    <td><a href="#/therapieTaskDetails/{{therapieTask._id}}" class="btn btn-warning">Bearbeiten</a>
-                        <a href="" ng-click="deleteTherapieTask(therapieTask)" class="btn btn-danger">
+                <tr ng-repeat="therapyTask in therapyTasks">
+                    <td>{{therapyTask.name}}</td>
+                    <td>{{therapyTask.description}}</td>
+                    <td><a href="#/therapyTaskDetails/{{therapyTask._id}}" class="btn btn-warning">Bearbeiten</a>
+                        <a href="" ng-click="deleteTherapyTask(therapyTask)" class="btn btn-danger">
                             <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
                         </a>
                     </td>
@@ -21,6 +21,6 @@
                 </thead>
             </table>
         </div>
-        <a href="#therapieTaskDetails" class="btn btn-success">Therapeutische Aufgabe hinzufügen</a>
+        <a href="#therapyTaskDetails" class="btn btn-success">Therapeutische Aufgabe hinzufügen</a>
     </div>
 </div>

@@ -18,16 +18,16 @@ app.config(function ($routeProvider) {
         templateUrl : "patientModify.html",
         controller : "patientModifyController"
     })
-    .when("/therapieTaskList", {
-        templateUrl : "therapieTaskList.html",
-        controller : "therapieTaskListController"
+    .when("/therapyTaskList", {
+        templateUrl : "therapyTaskList.html",
+        controller : "therapyTaskListController"
     })
-    .when("/therapieTaskDetails", {
-        templateUrl : "therapieTaskDetails.html",
-        controller : "therapieTaskDetailsController"
+    .when("/therapyTaskDetails", {
+        templateUrl : "therapyTaskDetails.html",
+        controller : "therapyTaskDetailsController"
     })
-    .when("/therapieTaskDetails/:id", {
-        templateUrl : "therapieTaskDetails.html",
-        controller : "therapieTaskDetailsController"
+    .when("/therapyTaskDetails/:id", {
+        templateUrl : "therapyTaskDetails.html",
+        controller : "therapyTaskDetailsController"
     });//.otherwise({redirectTo : '/'});
 });

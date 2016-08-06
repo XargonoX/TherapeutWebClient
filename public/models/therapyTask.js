@@ -1,7 +1,7 @@
 var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 
-var TherapieTaskSchema = new Schema({
+var TherapyTaskSchema = new Schema({
     created:{
         type : Date,
         default: Date.now
@@ -24,10 +24,10 @@ var TherapieTaskSchema = new Schema({
 
 });
 
-TherapieTaskSchema.statics = {
+TherapyTaskSchema.statics = {
     load: function(id, cb){
         this.findOne({_id : id}).exec(cb);
     }
 };
 
-mongoose.model('TherapieTaskPattern',TherapieTaskSchema);
+mongoose.model('TherapyTask',TherapyTaskSchema);
