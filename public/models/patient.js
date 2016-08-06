@@ -15,7 +15,6 @@ var PatientSchema = new Schema({
     phoneNumber : String,
     birthdate : Date,
     patientInfo : String
-
 });
 
 PatientSchema.statics = {

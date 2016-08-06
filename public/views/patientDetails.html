@@ -1,72 +1,17 @@
-<form class="form-horizontal" ng-submit="savePatient()">
-    <fieldset>
-        <legend>Patient Details</legend>
-
-        <div class="control-group">
-            <label class="control-label" for="textinput">Name</label>
-            <div class=controls">
-                <input id="textinput" name="textinput" type="text"
-                       placeholder="Max Mustermann" class="input-xlarge"
-                       ng-model="patient.name">
-            </div>
+<form class="form-horizontal">
+    <div class="panel panel-default">
+        <div class="panel-heading">Patienten Details</div>
+        <div class="panel-body">
+            <p>{{patient.name}} ({{patient.birthdate | date : 'dd.MM.yy'}})</p>
+            <p>{{patient.address}}, {{patient.postcode}}</p>
         </div>
-
-        <div class="control-group">
-            <label class="control-label" for="textinput">Geburtsdatum</label>
-            <div class=controls">
-                <input id="textinput" name="textinput" type="date" ng-model="patient.birthdate">
-            </div>
+    </div>
+    <div class="panel panel-default">
+        <div class="panel-heading">Therapeutische Aufgaben verwalten</div>
+        <div class="panel-body">
+            <ul class="list-group">
+                <!--<li class="list-group-item" ng-repeat="therapyTask in tasks">{{tasks.name}}</li> -->
+            </ul>
         </div>
-
-        <div class="control-group">
-            <label class="control-label" for="textinput">Straße & Nr.</label>
-            <div class=controls">
-                <input id="textinput" name="textinput" type="text"
-                       placeholder="BeispielStraße 9" class="input-xlarge"
-                       ng-model="patient.address">
-            </div>
-        </div>
-
-        <div class="control-group">
-            <label class="control-label" for="textinput">PLZ & Ort</label>
-            <div class=controls">
-                <input id="textinput" name="textinput" type="text"
-                       placeholder="Max Mustermann" class="input-xlarge"
-                       ng-model="patient.postcode">
-            </div>
-        </div>
-
-        <div class="control-group">
-            <label class="control-label" for="textinput">Telefonnummer</label>
-            <div class=controls">
-                <input id="textinput" name="textinput" type="text"
-                       placeholder="Max Mustermann" class="input-xlarge"
-                       ng-model="patient.phoneNumber">
-            </div>
-        </div>
-
-        <div class="control-group">
-            <label class="control-label" for="textinput">eMail Adresse</label>
-            <div class=controls">
-                <input id="textinput" name="textinput" type="email"
-                       placeholder="MaxMustermann@gmx.de" class="input-xlarge"
-                       ng-model="patient.emailAddress">
-            </div>
-        </div>
-
-        <div class="control-group">
-            <label class="control-label" for="textinput">Patienten Info</label>
-            <div class=controls">
-                <textarea id="textinput" name="textinput" type="text"
-                       placeholder="Max Mustermann" class="input-xlarge" size="40"
-                       ng-model="patient.patientInfo">
-            </textarea>
-        </div>
-
-        <div class="control-group">
-            <div class="controls">
-                <input type="submit" class="btn btn-primary" value="Speichern"/>
-            </div>
-        </div>
-    </fieldset>
+    </div>
 </form>

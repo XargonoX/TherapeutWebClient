@@ -6,10 +6,22 @@ var TherapieTaskSchema = new Schema({
         type : Date,
         default: Date.now
     },
-    name : String,
-    description : String,
-    materials : String,
-    feedbackForm : String
+    Pattern : String,
+    repeatTargetKontext : [
+                        {
+                            time : Date,
+                            location : String
+
+                        }
+                    ],
+    repeatActualState : [
+                        {
+                            time : Date,
+                            location : String
+
+                        }
+                    ]
+
 });
 
 TherapieTaskSchema.statics = {
@@ -18,4 +30,4 @@ TherapieTaskSchema.statics = {
     }
 };
 
-mongoose.model('TherapieTask',TherapieTaskSchema);
+mongoose.model('TherapieTaskPattern',TherapieTaskSchema);

@@ -1,28 +1,28 @@
-require('../models/therapieTask');
+require('../models/therapieTaskPattern');
 var mongoose = require('mongoose');
 var _ = require('underscore');
-var TherapieTask = mongoose.model("TherapieTask");
+var TherapieTaskPattern = mongoose.model("TherapieTaskPattern");
 exports.post = function (req, res) {
 
-    var therapieTask = new TherapieTask(req.body);
+    var therapieTask = new TherapieTaskPattern(req.body);
     therapieTask.save();
     res.jsonp(therapieTask);
 };
 
 exports.get = function (req, res) {
-    TherapieTask.find().exec(function (err, therapieTasks) {
+    TherapieTaskPattern.find().exec(function (err, therapieTasks) {
         res.jsonp(therapieTasks);
     });
 };
 
 exports.show = function(req,res){
-    TherapieTask.load(req.params.therapieTaskId, function(err,therapieTask){
+    TherapieTaskPattern.load(req.params.therapieTaskId, function(err, therapieTask){
         res.jsonp(therapieTask);
     });
 };
 
 exports.put = function(req, res){
-    TherapieTask.load(req.params.therapieTaskId, function(err,therapieTask){
+    TherapieTaskPattern.load(req.params.therapieTaskId, function(err, therapieTask){
 
         therapieTask = _.extend(therapieTask, req.body);
 
@@ -33,7 +33,7 @@ exports.put = function(req, res){
 };
 
 exports.delete = function(req,res){
-    TherapieTask.load(req.params.therapieTaskId, function(err,therapieTask){
+    TherapieTaskPattern.load(req.params.therapieTaskId, function(err, therapieTask){
         therapieTask.remove(function(err){
             res.jsonp(therapieTask);
         })

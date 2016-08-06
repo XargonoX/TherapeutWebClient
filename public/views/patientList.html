@@ -9,12 +9,14 @@
                 <th>Geburtsdatum</th>
                 <th>Bearbeiten</th>
                 <tbody>
+                <a href="#/patientDetails/{{patient._id}}">
                 <tr ng-repeat="patient in patients">
-                    <td>{{patient.name}}</td>
+                    <td><a href="#/patientDetails/{{patient._id}}">{{patient.name}}</a></td>
                     <td>{{patient.emailAddress}}</td>
                     <td>{{patient.birthdate | date : 'dd.MM.yy'}}</td>
                     <td>
-                        <a href="#/patientDetails/{{patient._id}}" class="btn btn-warning">Bearbeiten</a>
+                        <a href="#/patientDetails/{{patient._id}}" class="btn btn-success"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></a>
+                        <a href="#/patientModify/{{patient._id}}" class="btn btn-warning">Bearbeiten</a>
                         <a href="" ng-click="deletePatient(patient)" class="btn btn-danger">
                             <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
                         </a>
@@ -24,6 +26,6 @@
                 </thead>
             </table>
         </div>
-        <a href="#patientDetails" class="btn btn-success">Patienten hinzufügen</a>
+        <a href="#patientModify" class="btn btn-success">Patienten hinzufügen</a>
     </iv>
 </div>

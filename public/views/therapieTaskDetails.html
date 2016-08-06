@@ -1,46 +1,64 @@
-<form class="form-horizontal" ng-submit="saveTherapieTask()">
-    <fieldset>
-        <legend>Patient Details</legend>
+<div ng-controller="therapieTaskDetailsController">
+    <form class="form-horizontal" ng-submit="saveTherapieTask()">
+        <fieldset>
+            <legend>Therapeutische Aufgabe Details</legend>
 
-        <div class="control-group">
-            <label class="control-label" for="textinput">Name</label>
-            <div class=controls">
-                <input id="textinput" name="textinput" type="text"
-                       placeholder="Name/Kurzbeschreibung" class="input-xlarge"
-                       ng-model="therapieTask.name">
+            <div class="control-group">
+                <label class="control-label" for="textinput">Name</label>
+                <div class=controls">
+                    <input id="textinput" name="textinput" type="text"
+                           placeholder="Name/Kurzbeschreibung" class="input-xlarge"
+                           ng-model="therapieTask.name">
+                </div>
             </div>
-        </div>
 
-        <div class="control-group">
-            <label class="control-label" for="textinput">Beschreibung</label>
-            <div class=controls">
-                <textarea id="textinput" name="textinput" type="text"
-                          placeholder="Beschreibung der Therapeutischen Aufgabe" class="input-xlarge" size="40"
-                          ng-model="therapieTask.description">
-                </textarea>
+            <div class="control-group">
+                <label class="control-label" for="textinput">Beschreibung</label>
+                <div class=controls">
+                    <textarea id="textinput" name="textinput" type="text"
+                              placeholder="Beschreibung der Therapeutischen Aufgabe" class="input-xlarge" width="80"
+                              ng-model="therapieTask.description">
+                    </textarea>
+                </div>
             </div>
-        </div>
+            <br>
+            <div class="panel panel-default" style="max-width: 8">
+                <div class="panel-heading">Angehängte Materialien</div>
+                    <ul class="list-group">
+                            <li class="list-group-item" ng-repeat="mats in therapieTask.materials">
+                                {{mats}}
+                                <div class="btn-group btn-group-xs">
+                                    <button type="button" class="btn btn-danger"
+                                            ng-click="therapieTask.materials.splice(therapieTask.materials.indexOf('mats'),1)">Löschen</button>
+                                </div>
+                            </li>
+                    </ul>
+            </div>
 
-        <div class="control-group">
-            <label class="control-label" for="textinput">Materialien</label>
-            <div class=controls">
-                <input id="textinput" name="textinput" type="text" placeholder="TODO AUSWÄHLER"  ng-model="therapieTask.materials">
+            <div class="control-group">
+                <label class="control-label" for="textinput">Materialien</label>
+                <div class=controls">
+                    <input id="textinput" name="textinput" type="url" ng-model="material">
+                </div>
+                
+                <button type="button" class="btn btn-success"
+                        ng-click="therapieTask.materials.push(material)">Material hinzufügen</button>
             </div>
-        </div>
 
-        <div class="control-group">
-            <label class="control-label" for="textinput">Feedback Fragebogen</label>
-            <div class=controls">
-                <input id="textinput" name="textinput" type="text"
-                       placeholder="TODO Fragebogenauswahl" class="input-xlarge"
-                       ng-model="therapieTask.feedbackForm">
+            <div class="control-group">
+                <label class="control-label" for="textinput">Feedback Fragebogen</label>
+                <div class=controls">
+                    <input id="textinput" name="textinput" type="text"
+                           placeholder="TODO Fragebogenauswahl" class="input-xlarge"
+                           ng-model="therapieTask.feedbackForm">
+                </div>
             </div>
-        </div>
 
-        <div class="control-group">
-            <div class="controls">
-                <input type="submit" class="btn btn-primary" value="Speichern"/>
+            <div class="control-group">
+                <div class="controls">
+                    <input type="submit" class="btn btn-primary" value="Speichern"/>
+                </div>
             </div>
-        </div>
-    </fieldset>
-</form>
+        </fieldset>
+    </form>
+</div>

@@ -2,19 +2,23 @@ var app = angular.module("patientManagement", ["ngRoute"]);
 
 app.config(function ($routeProvider) {
     $routeProvider
-    .when("/patients", {
+    .when("/patientList", {
         templateUrl : "patientList.html",
         controller : "patientListController"
-    })
-    .when("/patientDetails", {
-        templateUrl : "patientDetails.html",
-        controller : "patientDetailsController"
     })
     .when("/patientDetails/:id", {
         templateUrl : "patientDetails.html",
         controller : "patientDetailsController"
     })
-    .when("/therapieTasks", {
+    .when("/patientModify", {
+        templateUrl : "patientModify.html",
+        controller : "patientModifyController"
+    })
+    .when("/patientModify/:id", {
+        templateUrl : "patientModify.html",
+        controller : "patientModifyController"
+    })
+    .when("/therapieTaskList", {
         templateUrl : "therapieTaskList.html",
         controller : "therapieTaskListController"
     })
