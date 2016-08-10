@@ -10,8 +10,8 @@
         <div class="panel-heading">Zugewiesene Aufgaben</div>
         <div class="panel-body">
             <ul class="list-group">
-                <li class="list-group-item" ng-repeat="assignedTherapyTasks in patient.assignedTherapyTasks">
-                    {{assignedTherapyTasks.Pattern.name}}
+                <li class="list-group-item" ng-repeat="Tasks in patient.assignedTherapyTasks">
+                    {{Tasks.PatternID}}
                 </li>
             </ul>
             <br>

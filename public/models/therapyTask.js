@@ -11,7 +11,7 @@ var TherapyTaskSchema = new Schema({
         default: Date.now
     },
     Pattern : "", //ID of TherapyTaskPattern
-    PatternID : [""],
+    PatternID : "",
     TargetContext : [
                         {
                             FromTime : Date,
