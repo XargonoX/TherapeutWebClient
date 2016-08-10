@@ -1,5 +1,5 @@
-var app = angular.module("patientManagement", ["ngRoute"]);
-
+//var mongoose = require("mongoose");
+var app = angular.module("patientManagement", ["ngRoute", "ngAnimate", "ngSanitize", "mgcrea.ngStrap", "mgcrea.ngStrap.timepicker", "mgcrea.ngStrap.select"]);
 app.config(function ($routeProvider) {
     $routeProvider
     .when("/patientList", {
@@ -30,4 +30,5 @@ app.config(function ($routeProvider) {
         templateUrl : "therapyTaskDetails.html",
         controller : "therapyTaskDetailsController"
     });//.otherwise({redirectTo : '/'});
+
 });

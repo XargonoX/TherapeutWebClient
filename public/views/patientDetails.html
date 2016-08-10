@@ -7,11 +7,49 @@
         </div>
     </div>
     <div class="panel panel-default">
-        <div class="panel-heading">Therapeutische Aufgaben verwalten</div>
+        <div class="panel-heading">Zugewiesene Aufgaben</div>
         <div class="panel-body">
             <ul class="list-group">
-                <!--<li class="list-group-item" ng-repeat="therapyTask in tasks">{{tasks.name}}</li> -->
+                <li class="list-group-item" ng-repeat="assignedTherapyTasks in patient.therapyTasks">
+                    {{assignedTherapyTasks.Pattern.name}}
+                </li>
             </ul>
+            <br>
+        </div>
+    </div>
+
+    <div class="panel panel-default">
+        <div class="panel-heading">Therapeutische Aufgabe hinzufügen</div>
+        <div class="panel-body">
+            <ul class="list-group">
+                <li class="list-group-item" ng-repeat="therapyTaskPattern in therapyTaskPatterns">
+                    {{therapyTaskPattern.name}}
+                </li>
+            </ul>
+            <br>
+            <div class="form-group" style="padding-left:10px;">
+                Zu erledigen zwischen:
+                <input type="text" class="form-control"
+                       style="width:75px; text-align: center; display:inline;"
+                       size="2" ng-model="patient.therapyTasks[0].repeatTargetKontext.FromTime"
+                       name="patient.therapyTasks[0].repeatTargetKontext.FromTime"
+                       bs-timepicker data-time-format="HH:mm"
+                       data-length="1" data-minute-step="1"
+                       data-arrow-behavior="picker"> und
+                <input type="text" class="form-control"
+                       style="width:75px; text-align: center; display:inline;"
+                       size="2" ng-model="patient.therapyTasks[0].repeatTargetKontext.ToTime"
+                       name="patient.therapyTasks[0].repeatTargetKontext.ToTime"
+                       bs-timepicker data-time-format="HH:mm"
+                       data-length="1" data-minute-step="10"
+                       data-arrow-behavior="picker"> Uhr
+                <label>Multiple select:&nbsp;</label>
+                <button type="button" class="btn btn-default dropdown-toggle"
+                        ng-model="selectedWeekdays" data-html="1"
+                        data-multiple="1" data-animation="am-flip-x"
+                        bs-options="weekday.value as weekday.label for weekday in weekdays" bs-select>Wochentage <span class="caret"></span>
+                </button>
+            </div>
         </div>
     </div>
 </form>

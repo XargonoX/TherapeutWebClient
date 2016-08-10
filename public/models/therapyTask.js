@@ -1,27 +1,30 @@
 var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
+var TherapyTaskPattern =require('./therapyTaskPattern');
+
+
+
 
 var TherapyTaskSchema = new Schema({
     created:{
         type : Date,
         default: Date.now
     },
-    Pattern : String,
+    Pattern : ["TherapyTaskPattern"],
     repeatTargetKontext : [
                         {
-                            time : Date,
+                            FromTime : Date,
+                            ToTime : Date,
                             location : String
-
                         }
                     ],
     repeatActualState : [
                         {
-                            time : Date,
+                            FromTime : Date,
+                            ToTime : Date,
                             location : String
-
                         }
                     ]
-
 });
 
 TherapyTaskSchema.statics = {
