@@ -16,7 +16,7 @@ var PatientSchema = new Schema({
     phoneNumber : String,
     birthdate : Date,
     patientInfo : String,
-    therapyTasks : [mongoose.model("TherapyTask")]
+    assignedTherapyTasks : []
 });
 
 PatientSchema.statics = {

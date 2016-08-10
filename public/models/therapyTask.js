@@ -10,18 +10,21 @@ var TherapyTaskSchema = new Schema({
         type : Date,
         default: Date.now
     },
-    Pattern : ["TherapyTaskPattern"],
-    repeatTargetKontext : [
+    Pattern : "", //ID of TherapyTaskPattern
+    PatternID : [""],
+    TargetContext : [
                         {
                             FromTime : Date,
                             ToTime : Date,
+                            OnWeekdays : [""],
                             location : String
                         }
                     ],
-    repeatActualState : [
+    ActualContext : [
                         {
                             FromTime : Date,
                             ToTime : Date,
+                            OnWeekdays : [""],
                             location : String
                         }
                     ]

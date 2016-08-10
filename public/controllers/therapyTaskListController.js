@@ -3,7 +3,7 @@ var app = angular.module("patientManagement");
 app.controller("therapyTaskListController", function($scope, $http){
 
     $http.get("http://localhost:3000/therapyTaskAPI").success(function(response){
-        $scope.therapyTasks = response;
+        $scope.assignedTherapyTasks = response;
     }).error(function(err){
         $scope.error = err;
     });
@@ -11,7 +11,7 @@ app.controller("therapyTaskListController", function($scope, $http){
     $scope.deleteTherapyTask = function(therapyTask){
         $http.delete("http://localhost:3000/therapyTaskAPI/" + therapyTask._id)
             .success(function(response){
-                $scope.therapyTasks.pop(therapyTask);
+                $scope.assignedTherapyTasks.pop(therapyTask);
         })
     };
     

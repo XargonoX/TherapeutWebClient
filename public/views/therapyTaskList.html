@@ -8,7 +8,7 @@
                 <th>Beschreibung</th>
                 <th>Bearbeiten</th>
                 <tbody>
-                <tr ng-repeat="therapyTask in therapyTasks">
+                <tr ng-repeat="therapyTask in assignedTherapyTasks">
                     <td>{{therapyTask.name}}</td>
                     <td>{{therapyTask.description}}</td>
                     <td><a href="#/therapyTaskDetails/{{therapyTask._id}}" class="btn btn-warning">Bearbeiten</a>

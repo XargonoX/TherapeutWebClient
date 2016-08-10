@@ -18,7 +18,7 @@ app.controller("patientModifyController", function($scope, $http, $location, $ro
         }else{
             $http.put("http://localhost:3000/patientAPI/" + $scope.patient._id, $scope.patient)
                 .success(function(response){
-                    console.log("Neuer Patient angelegt");
+                    console.log("Patient editiert");
                     $location.url("/patientList")
                 });
         }

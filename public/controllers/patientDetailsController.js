@@ -1,31 +1,52 @@
 var app = angular.module("patientManagement");
-app.controller("patientDetailsController", function ($scope, $http, $location, $routeParams) {
-    $scope.patient = {};
-    //$scope.therapyTaskPatterns = {};
-    $scope.selectedWeekdays = "";
-    //$scope.selectedWeekday =  !selectedWeekday ? '""' : selectedWeekday;
-    //$scope.selectedWeekdays = selectedWeekdays;
-    $scope.selectedWeekdays = ["Montag"]; //selectedIcons
-    $scope.weekdays = [ {"value": "Montag",     "label": "Montag"},   //icons
-                        {"value": "Dienstag",   "label": "Dienstag"},
-                        {"value": "Mittwoch",   "label": "Mittwoch"},
-                        {"value": "Donnerstag", "label": "Donnerstag"},
-                        {"value": "Freitag",    "label": "Freitag"},
-                        {"value": "Samstag",    "label": "Samstag"},
-                        {"value": "Sonntag",    "label": "Sonntag"}
+app.controller("patientDetailsController", function ($scope, $http, $location, $routeParams, $mdDialog) {
+    $scope.weekdays = [ {"name": "Montag"},
+                        {"name": "Dienstag"},
+                        {"name": "Mittwoch"},
+                        {"name": "Donnerstag"},
+                        {"name": "Freitag"},
+                        {"name": "Samstag"},
+                        {"name": "Sonntag"}
                         ];
-
+    $scope.selectedtherapyTaskPattern = [""];
     $http.get("http://localhost:3000/therapyTaskAPI/").success(function (response) {
         $scope.therapyTaskPatterns = response;
     });
-    var id = $routeParams.id;
-    $http.get("http://localhost:3000/patientAPI/" + id).success(function (response) {
+
+    $scope.patient = {};
+    $http.get("http://localhost:3000/patientAPI/" + $routeParams.id).success(function (response) {
         $scope.patient = response;
     });
-    $scope.patient.therapyTasks = [];
-    $scope.patient.therapyTasks[0] = {};
-    $scope.patient.therapyTasks[0].repeatTargetKontext = {};
-    $scope.patient.therapyTasks[0].repeatTargetKontext.FromTime = "1970-01-01T16:30:40.000Z";
-    $scope.patient.therapyTasks[0].repeatTargetKontext.ToTime = "1970-01-01T16:30:40.000Z";
+    $scope.assignedTherapyTasks = {};
+    $scope.assignedTherapyTasks.Pattern = "";
+    $scope.assignedTherapyTasks.TargetContext = {};
+    $scope.assignedTherapyTasks.TargetContext.selectedWeekdays = [];
+    $scope.assignedTherapyTasks.TargetContext.selectedWeekdays = ["Montag"];
+    $scope.assignedTherapyTasks.TargetContext.FromTime = "1970-01-01T16:30:40.000Z";
+    $scope.assignedTherapyTasks.TargetContext.ToTime = "1970-01-01T16:30:40.000Z";
+    $scope.assignedTherapyTasks.TargetContext.location = "Zuhause";
 
+    $scope.addTherapyTask = function(){
+        $scope.assignedTherapyTasks.ActualContext = $scope.assignedTherapyTasks.TargetContext;
+        $scope.patient.assignedTherapyTasks = typeof $scope.patient.assignedTherapyTasks == "undefined" ? [] : $scope.patient.assignedTherapyTasks;
+        if($scope.selectedtherapyTaskPattern == ""){
+            var alert = $mdDialog.alert({
+                title: 'Fehler!',
+                textContent: 'Es Wurde keine Therapeutische Aufgabe ausgewählt',
+                ok: 'Close'
+            });
+            $mdDialog.show( alert ).finally(function() {
+                    alert = undefined;
+                });
+            return;
+        }
+        $scope.assignedTherapyTasks.Pattern = $scope.selectedtherapyTaskPattern;
+        $scope.patient.assignedTherapyTasks.push($scope.assignedTherapyTasks);
+
+        $http.put("http://localhost:3000/patientAPI/" + $scope.patient._id, $scope.patient).success(function (response) {
+            console.log("Task hinzugefügt (Patient gespeichert)");
+            $location.url("/patientDetails/" + $routeParams.id);
+        });
+
+    };
 });
