@@ -11,7 +11,7 @@
         <div class="panel-body">
             <ul class="list-group">
                 <li class="list-group-item" ng-repeat="Tasks in patient.assignedTherapyTasks">
-                    {{Tasks.PatternID}}
+                    {{Tasks.Pattern}}
                 </li>
             </ul>
             <br>
@@ -28,10 +28,9 @@
                         bs-options="therapyTaskPattern._id as therapyTaskPattern.name for therapyTaskPattern in therapyTaskPatterns"
                         bs-select><span class="caret"/>
                 </button>
-                {{selectedtherapyTaskPattern}}
                 <br>
                 <br>
-                <div class="form-group" style="padding-left:10px;">
+                <div class="form-group">
                     Zu erledigen zwischen
                     <input type="text" class="form-control"
                            style="width:75px; text-align: center; display:inline;" size="2"
@@ -57,7 +56,7 @@
                             class="caret"></span>
                     </button>
                 </div>
-                <div class="form-group" style="padding-left:10px;">
+                <div class="form-group">
                     Wo zu erledigen:
                     <input type="text" class="form-control"
                            ng-model="assignedTherapyTasks.TargetContext.location"/>

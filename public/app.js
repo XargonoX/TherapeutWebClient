@@ -29,6 +29,6 @@ app.config(function ($routeProvider) {
     .when("/therapyTaskDetails/:id", {
         templateUrl : "therapyTaskDetails.html",
         controller : "therapyTaskDetailsController"
-    });//.otherwise({redirectTo : '/'});
+    }).otherwise({redirectTo : '/'});
 
 });
