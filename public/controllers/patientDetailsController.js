@@ -28,6 +28,7 @@ app.controller("patientDetailsController", function ($scope, $http, $location, $
     $scope.addTherapyTask = function(){
         $scope.assignedTherapyTasks.ActualContext = $scope.assignedTherapyTasks.TargetContext;
         $scope.patient.assignedTherapyTasks = typeof $scope.patient.assignedTherapyTasks == "undefined" ? [] : $scope.patient.assignedTherapyTasks;
+
         if($scope.selectedtherapyTaskPattern == ""){
              var alert = $mdDialog.alert({
                 title: 'Fehler!',
@@ -39,6 +40,7 @@ app.controller("patientDetailsController", function ($scope, $http, $location, $
                 });
             return;
         }
+
         $scope.assignedTherapyTasks.PatternID = $scope.selectedtherapyTaskPattern;
         var Pattern = $.grep($scope.therapyTaskPatterns, function(e, x){
             return e._id == $scope.assignedTherapyTasks.PatternID;
@@ -47,7 +49,7 @@ app.controller("patientDetailsController", function ($scope, $http, $location, $
         $scope.assignedTherapyTasks.Pattern = Pattern[0].name;
         $scope.patient.assignedTherapyTasks.push($scope.assignedTherapyTasks);
         $http.put("http://localhost:3000/patientAPI/" + $scope.patient._id, $scope.patient).success(function (response) {
-            console.log("Task hinzugefügt (Patient gespeichert)");
+            console.log("Task hinzugefügt (Questionnaire gespeichert)");
             $location.url("/patientDetails/" + $routeParams.id);
         });
 

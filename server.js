@@ -7,7 +7,8 @@ var bodyParser      = require('body-parser');
 var mongoose        = require('mongoose');
 
 var patient         = require('./public/routes/patientsAPI');
-var therapyTask    = require('./public/routes/therapyTaskAPI');
+var therapyTask     = require('./public/routes/therapyTaskAPI');
+var questionnaire   = require('./public/routes/questionnaireAPI');
 
 var app             = express();
 
@@ -36,6 +37,7 @@ app.use(express.static(path.join(__dirname, '/public')));
 
 app.use('/patientAPI',patient);
 app.use('/therapyTaskAPI',therapyTask);
+app.use('/questionnaireAPI',questionnaire);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

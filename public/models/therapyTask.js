@@ -1,33 +1,30 @@
+
 var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 var TherapyTaskPattern =require('./therapyTaskPattern');
-
-
-
 
 var TherapyTaskSchema = new Schema({
     created:{
         type : Date,
         default: Date.now
     },
-    Pattern : "", //ID of TherapyTaskPattern
+    Pattern : "",
     PatternID : "",
-    TargetContext : [
-                        {
-                            FromTime : Date,
-                            ToTime : Date,
-                            OnWeekdays : [""],
-                            location : String
-                        }
-                    ],
-    ActualContext : [
-                        {
-                            FromTime : Date,
-                            ToTime : Date,
-                            OnWeekdays : [""],
-                            location : String
-                        }
-                    ]
+    TargetContext :
+                    {
+                        FromTime : Date,
+                        ToTime : Date,
+                        OnWeekdays : [""],
+                        location : String
+                    },
+    ActualContext :
+                    {
+                        FromTime : Date,
+                        ToTime : Date,
+                        OnWeekdays : [""],
+                        location : String
+                    }
+
 });
 
 TherapyTaskSchema.statics = {

@@ -1,0 +1,25 @@
+<div ng-controller="questionnaireListController">
+    <div class="row">
+        <div class="col-md-12">
+            <table class="table table-hover table-striped">
+                <thead>
+                <th>Name</th>
+                <tbody>
+                <a href="#/questionnaireModify/{{existingQuestionnaire._id}}">
+                    <tr ng-repeat="form in existingQuestionnaire">
+                        <td><a href="#/questionnaireModify/{{form._id}}">{{form.name}}</a></td>
+                        <td>
+                            <a href="#/questionnaireModify/{{form._id}}" class="btn btn-warning">Bearbeiten</a>
+                            <a href="" ng-click="deleteQuestionnaire(form)" class="btn btn-danger">
+                                <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
+                            </a>
+                        </td>
+                    </tr>
+                </a>
+                </tbody>
+                </thead>
+            </table>
+        </div>
+        <a href="#questionnaireModify" class="btn btn-success">Fragebogen hinzufügen</a>
+    </div>
+</div>

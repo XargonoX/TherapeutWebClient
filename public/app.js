@@ -29,6 +29,21 @@ app.config(function ($routeProvider) {
     .when("/therapyTaskDetails/:id", {
         templateUrl : "therapyTaskDetails.html",
         controller : "therapyTaskDetailsController"
+    })
+    .when("/questionnaireList", {
+        templateUrl : "questionnaireList.html",
+        controller : "questionnaireListController"
+    })
+    .when("/questionnaireModify", {
+        templateUrl : "questionnaireModify.html",
+        controller : "questionnaireModifyController"
+    })
+    .when("/questionnaireModify/:id", {
+        templateUrl : "questionnaireModify.html",
+        controller : "questionnaireModifyController"
     }).otherwise({redirectTo : '/'});
+
+
+
 
 });

@@ -2,6 +2,7 @@ require('../models/therapyTaskPattern');
 var mongoose = require('mongoose');
 var _ = require('underscore');
 var TherapyTaskPattern = mongoose.model("TherapyTaskPattern");
+
 exports.post = function (req, res) {
 
     var therapyTask = new TherapyTaskPattern(req.body);

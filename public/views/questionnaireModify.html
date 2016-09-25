@@ -1,0 +1,21 @@
+<link rel="stylesheet" href="stylesheets/diagram-js.css"/>
+<link rel="stylesheet" href="stylesheets/bpmn-font/css/bpmn-embedded.css"/>
+<link rel="stylesheet" href="stylesheets/modeller.css"/>
+
+<div id="canvas" style="height:700px" >
+<div ng-controller="questionnaireModifyController">
+        <label>Speichern als: </label>
+        <input ng-model="actualQuestionnaire.name">
+        <md-input-container class="md-block" flex-gt-sm>
+                <label>State</label>
+                <md-select ng-model="actualQuestionnaire.name">
+                        <md-option ng-repeat="form in existingQuestionnaire" value="{{form.name}}">
+                                {{form.name}}
+                        </md-option>
+                </md-select>
+        </md-input-container>
+        <md-button class="btn md-raised" ng-click="showConfirm($event)" >
+                Speichern
+        </md-button>
+</div>
+</div>
