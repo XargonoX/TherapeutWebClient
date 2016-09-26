@@ -3,7 +3,6 @@ var mongoose = require('mongoose');
 var _ = require('underscore');
 var Patient = mongoose.model("Patient");
 exports.post = function (req, res) {
-
     var patient = new Patient(req.body);
     patient.save();
     res.jsonp(patient);

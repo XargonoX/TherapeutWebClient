@@ -1,6 +1,6 @@
 var app = angular.module("patientManagement");
 
-app.controller("patientListController", function($scope, $http){
+app.controller("patientListController", function($scope, $http, $location){
 
     $http.get("http://localhost:3000/patientAPI").success(function(response){
         $scope.patients = response;
@@ -11,7 +11,8 @@ app.controller("patientListController", function($scope, $http){
     $scope.deletePatient = function(patient){
         $http.delete("http://localhost:3000/patientAPI/" + patient._id)
             .success(function(response){
-                $scope.patients.pop(patient);
+                var index = $scope.patients.indexOf(patient);
+                $scope.patients.splice(index,1);
         })
     };
     

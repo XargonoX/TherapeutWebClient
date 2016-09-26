@@ -5,7 +5,7 @@
         <div class="control-group">
             <label class="control-label" for="textinput">Name</label>
             <div class=controls">
-                <input id="textinput" name="textinput" type="text"
+                <input name="textinput" type="text"
                        placeholder="Max Mustermann" class="input-xlarge"
                        ng-model="patient.name">
             </div>
@@ -14,14 +14,14 @@
         <div class="control-group">
             <label class="control-label" for="textinput">Geburtsdatum</label>
             <div class=controls">
-                <input id="textinput" name="textinput" type="time" ng-model="patient.birthdate">
+                <input name="textinput" type="date" ng-model="patient.birthdate">
             </div>
         </div>
 
         <div class="control-group">
             <label class="control-label" for="textinput">Straße & Nr.</label>
             <div class=controls">
-                <input id="textinput" name="textinput" type="text"
+                <input name="textinput" type="text"
                        placeholder="BeispielStraße 9" class="input-xlarge"
                        ng-model="patient.address">
             </div>
@@ -30,8 +30,8 @@
         <div class="control-group">
             <label class="control-label" for="textinput">PLZ & Ort</label>
             <div class=controls">
-                <input id="textinput" name="textinput" type="text"
-                       placeholder="Max Mustermann" class="input-xlarge"
+                <input name="textinput" type="text"
+                       placeholder="89081 Ulm" class="input-xlarge"
                        ng-model="patient.postcode">
             </div>
         </div>
@@ -39,8 +39,8 @@
         <div class="control-group">
             <label class="control-label" for="textinput">Telefonnummer</label>
             <div class=controls">
-                <input id="textinput" name="textinput" type="text"
-                       placeholder="Max Mustermann" class="input-xlarge"
+                <input name="textinput" type="text"
+                       placeholder="0731/3454567" class="input-xlarge"
                        ng-model="patient.phoneNumber">
             </div>
         </div>
@@ -48,7 +48,7 @@
         <div class="control-group">
             <label class="control-label" for="textinput">eMail Adresse</label>
             <div class=controls">
-                <input id="textinput" name="textinput" type="email"
+                <input name="textinput" type="email"
                        placeholder="MaxMustermann@gmx.de" class="input-xlarge"
                        ng-model="patient.emailAddress">
             </div>
@@ -58,7 +58,7 @@
             <label class="control-label" for="textinput">Patienten Info</label>
             <div class=controls">
                 <textarea id="textinput" name="textinput" type="text"
-                       placeholder="Max Mustermann" class="input-xlarge" size="40"
+                       placeholder="Infos zum Patienten" class="input-xlarge" size="40"
                        ng-model="patient.patientInfo">
                 </textarea>
             </div>
