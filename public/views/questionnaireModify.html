@@ -1,12 +1,13 @@
 <link rel="stylesheet" href="stylesheets/diagram-js.css"/>
 <link rel="stylesheet" href="stylesheets/bpmn-font/css/bpmn-embedded.css"/>
 <link rel="stylesheet" href="stylesheets/modeller.css"/>
+<link rel="stylesheet" href="stylesheets/propertiesPanel.css"/>
 
 
-<div style="padding-top: 30px" class="canvas content" id="canvas">
+<div style="padding-top: 50px">
     <md-input-container style="width: 150px" class="md-block" flex-gt-sm>
         <label>Name aus bestehenden Fragebögen wählen</label>
-        <md-select ng-model="actualQuestionnaire.name">
+        <md-select style="width: 200px" ng-model="actualQuestionnaire.name">
             <md-option ng-repeat="form in existingQuestionnaire" value="{{form.name}}">
                 {{form.name}}
             </md-option>
@@ -17,5 +18,7 @@
     <md-button class="btn md-raised" ng-click="showConfirm($event)">
         Speichern
     </md-button>
+        <div id="canvas" style="height: 700px"></div>
+        <div id="properties"></div>
 </div>
 

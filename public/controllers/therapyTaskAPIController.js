@@ -24,9 +24,7 @@ exports.show = function(req,res){
 
 exports.put = function(req, res){
     TherapyTaskPattern.load(req.params.therapyTaskId, function(err, therapyTask){
-
         therapyTask = _.extend(therapyTask, req.body);
-
         therapyTask.save(function(err){
             res.jsonp(therapyTask);
         })

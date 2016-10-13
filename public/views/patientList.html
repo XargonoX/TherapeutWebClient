@@ -1,32 +1,32 @@
-<div ng-controller="patientListController">
+<h2>Patienten</h2>
+<a href="#patientModify" class="btn btn-success">Patienten hinzufügen</a>
 <div class="row">
-        <div class="col-md-12">
-            <table class="table table-hover table-striped">
-                <thead>
-                <tr></tr>
-                <th>Name</th>
-                <th>E-Mail</th>
-                <th>Geburtsdatum</th>
-                <th>Bearbeiten</th>
-                <tbody>
-                <a href="#/patientDetails/{{patient._id}}">
+    <div class="col-md-12">
+        <table class="table table-hover table-striped">
+            <thead>
+            <th>Name</th>
+            <th>E-Mail</th>
+            <th>Geburtsdatum</th>
+            <th>Bearbeiten</th>
+            </thead>
+            <tbody>
+            <a href="#/patientDetails/{{patient._id}}">
                 <tr ng-repeat="patient in patients">
                     <td><a href="#/patientDetails/{{patient._id}}">{{patient.name}}</a></td>
                     <td>{{patient.emailAddress}}</td>
                     <td>{{patient.birthdate | date : 'dd.MM.yy'}}</td>
                     <td>
-                        <a href="#/patientDetails/{{patient._id}}" class="btn btn-success"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></a>
+                        <a href="#/patientDetails/{{patient._id}}" class="btn btn-success"><span
+                                class="glyphicon glyphicon-search" aria-hidden="true"></span></a>
                         <a href="#/patientModify/{{patient._id}}" class="btn btn-warning">Bearbeiten</a>
                         <a ng-click="deletePatient(patient)" class="btn btn-danger">
                             <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
                         </a>
                     </td>
                 </tr>
-                    </a>
-                </tbody>
-                </thead>
-            </table>
-        </div>
-        <a href="#patientModify" class="btn btn-success">Patienten hinzufügen</a>
+            </a>
+            </tbody>
+        </table>
     </div>
+
 </div>

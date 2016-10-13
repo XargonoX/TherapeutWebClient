@@ -8,8 +8,8 @@ var TherapyTaskSchema = new Schema({
         type : Date,
         default: Date.now
     },
-    Pattern : "",
-    PatternID : "",
+    PatternId : "",
+    QuestionnaireId: "",
     TargetContext :
                     {
                         FromTime : Date,
