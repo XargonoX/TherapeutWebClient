@@ -1,6 +1,6 @@
 var app = angular.module("patientManagement");
 
-app.controller("patientDetailsController", function($scope, $http, $location, $routeParams){
+app.controller("patientModifyController", function($scope, $http, $location, $routeParams){
     $scope.patient = {};
     var id = $routeParams.id;
     console.log("id: " + id);
@@ -12,14 +12,14 @@ app.controller("patientDetailsController", function($scope, $http, $location, $r
         if(typeof id == "undefined"){
             $http.post("http://localhost:3000/patientAPI", $scope.patient)
                 .success(function(response){
-                    console.log("Neuer Patient angelegt");
+                    console.log("Neuer Questionnaire angelegt");
                     $location.url("/patientList");
                 });
         }else{
             $http.put("http://localhost:3000/patientAPI/" + $scope.patient._id, $scope.patient)
                 .success(function(response){
-                    console.log("Neuer Patient angelegt");
-                    $location.url("/patientList")
+                    console.log("Questionnaire editiert");
+                    $location.url("/patientList");
                 });
         }
 

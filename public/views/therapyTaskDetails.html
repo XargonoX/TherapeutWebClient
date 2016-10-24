@@ -1,0 +1,53 @@
+<div ng-controller="therapyTaskDetailsController">
+    <form class="form-horizontal" ng-submit="saveTherapyTask()">
+        <div class="input-group">
+            <legend>Therapeutische Aufgabe Details</legend>
+
+            <div class="control-group">
+                <label class="control-label" for="textinput">Name</label>
+                <div class=controls">
+                    <input name="textinput" type="text"
+                           placeholder="Name/Kurzbeschreibung" class="form-control"
+                           ng-model="therapyTask.name">
+                </div>
+            </div>
+
+            <div class="input-group control-group">
+                <label class="control-label" for="textinput">Beschreibung</label>
+                <div class=controls">
+                    <textarea name="textinput" type="text"
+                              placeholder="Beschreibung der Therapeutischen Aufgabe" class="form-control"
+                              ng-model="therapyTask.description">
+                    </textarea>
+                </div>
+            </div>
+            <br>
+            <div class="panel panel-default" style="max-width: 8">
+                <div class="panel-heading"><label>Angehängte Materialien</label></div>
+                <div class="panel-body">
+                    <ul class="list-group">
+                        <li class="list-group-item" ng-repeat="mats in therapyTask.materials">
+                            {{mats}}
+                            <div class="btn-group btn-group-xs">
+                                <button type="button" class="btn btn-danger"
+                                        ng-click="therapyTask.materials.splice(therapyTask.materials.indexOf('mats'),1)">Löschen</button>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                <div class="panel-footer">
+                    <div class=controls">
+                        <input class="form-control" id="textinput" name="textinput" type="url" ng-model="material">
+                        <button type="button" class="btn btn-success"
+                                ng-click="therapyTask.materials.push(material)">Material hinzufügen</button>
+                    </div>
+                </div>
+            </div>
+            <div class="control-group">
+                <div class="controls">
+                    <input type="submit" class="btn btn-primary" value="Speichern"/>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>

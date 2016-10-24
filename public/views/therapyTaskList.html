@@ -1,0 +1,26 @@
+<legend>Therapeutische Aufgaben</legend>
+<a href="#therapyTaskDetails" class="btn btn-success">Therapeutische Aufgabe hinzufügen</a>
+<div class="row">
+    <div class="col-md-12">
+        <table class="table table-hover table-striped">
+            <thead>
+            <th>Name</th>
+            <th>Beschreibung</th>
+            <th>Bearbeiten</th>
+            </thead>
+            <tbody>
+            <tr ng-repeat="therapyTask in assignedTherapyTasks">
+                <td>{{therapyTask.name}}</td>
+                <td>{{therapyTask.description}}</td>
+                <td><a href="#/therapyTaskDetails/{{therapyTask._id}}" class="btn btn-warning">Bearbeiten</a>
+                    <a href="" ng-click="deleteTherapyTask(therapyTask)" class="btn btn-danger">
+                        <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
+                    </a>
+                </td>
+            </tr>
+            </tbody>
+
+        </table>
+    </div>
+
+</div>

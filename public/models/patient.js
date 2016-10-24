@@ -1,5 +1,6 @@
 var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
+var TherapyTask = require("./therapyTask");
 //var express = require('express');
 //var router = express.Router();
 
@@ -14,13 +15,13 @@ var PatientSchema = new Schema({
     emailAddress : String,
     phoneNumber : String,
     birthdate : Date,
-    patientInfo : String
-
+    patientInfo : String,
+    assignedTherapyTasks : []
 });
 
 PatientSchema.statics = {
     load: function(id, cb){
-        this.findOne({_id : id}).exec(cb);
+        this.findOne({_id : id}).exec(cb)
     }
 };
 
