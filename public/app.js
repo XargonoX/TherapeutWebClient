@@ -1,4 +1,3 @@
-//var mongoose = require("mongoose");
 var app = angular.module("patientManagement", ["ngRoute", "ngAnimate", "ngSanitize", "ngMaterial", "ngStorage", "mgcrea.ngStrap", "mgcrea.ngStrap.timepicker", "mgcrea.ngStrap.select"]);
 app.config(function ($routeProvider) {
     $routeProvider

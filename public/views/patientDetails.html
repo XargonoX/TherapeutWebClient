@@ -1,8 +1,8 @@
+<legend>Patienten Details</legend>
 <div class="panel panel-default">
-    <div class="panel-heading"><label>Patienten Details</label></div>
+    <div class="panel-heading"><label>{{patient.name}}</label></div>
     <div class="panel-body">
-        <p>{{patient.name}} ({{patient.birthdate | date : 'dd.MM.yy'}})</p>
-        <p>{{patient.address}}, {{patient.postcode}}</p>
+        <p> {{patient.birthdate | date : 'dd.MM.yy'}}, {{patient.address}}, {{patient.postcode}}</p>
     </div>
 </div>
 <div class="panel panel-default">
@@ -11,8 +11,8 @@
         <ul class="list-group">
             <div class="panel panel-primary " ng-repeat="Task in patient.assignedTherapyTasks">
                 <div class="panel-heading">{{getTaskById(Task.PatternId).name}}
-                    <span class="badge">Von: {{Task.ActualContext.FromTime | date : 'HH:mm'}}</span>
-                    <span class="badge">Bis: {{Task.ActualContext.ToTime | date : 'HH:mm'}}</span>
+                    <span class="badge">Zwischen: {{Task.ActualContext.FromTime | date : 'HH:mm'}}</span>
+                    <span class="badge">und: {{Task.ActualContext.ToTime | date : 'HH:mm'}}</span>
                     <button type="button" class="pull-right btn btn-danger glyphicon glyphicon-remove "
                             ng-click="removeAssignedTask(Task)" aria-hidden="true"/>
 
@@ -93,7 +93,7 @@
     <div class="panel-heading"><label>Beantwortete Fragebögen</label></div>
     <div class="panel-body">
         <div class="panel panel-primary " ng-repeat="answered in AnsweredQuestionnaires">
-            <div class="panel-heading">{{getQuestionnaireById(answered.questionnaireId).name}}
+            <div class="panel-heading">Fragebogen: {{getQuestionnaireById(answered.questionnaireId).name}}
                 <span class="badge">Bearbeitet: {{answered.created | date : 'dd.MM.yy'}}</span>
             </div>
             <div class="panel-body">
@@ -104,9 +104,6 @@
 
                     </div>
                 </div>
-            </div>
-            <div class="panel-footer">
-                <label>Zugewiesener Fragebogen: </label> {{getQuestionnaireById(Task.QuestionnaireId).name}}
             </div>
         </div>
     </div>
